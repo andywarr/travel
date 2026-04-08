@@ -2277,13 +2277,13 @@
               this.visited_countries = this.addVisitedCountry(node.id);
             }
 
-            this.removeVisitedCountry(node.id);
+            this.saveVisitedCountries();
             this.updateVisitiedCountryCount();
           }
         },
 
         addVisitedCountry: function(countryCode) {
-          return [...countries, {id: countryCode}];
+          return [...this.visited_countries, {id: countryCode}];
         },
 
         getVisitedCountries: function() {
