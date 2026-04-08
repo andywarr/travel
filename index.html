@@ -2193,11 +2193,13 @@
         },
 
         playGame: function() {
-          let country = this.all_countries[this.getRandomIntInclusive(0, this.all_countries.length)];
+          let country = this.all_countries[this.getRandomIntInclusive(0, this.all_countries.length - 1)];
+          let bbox = country.getBBox();
+          let area = bbox.width * bbox.height;
 
           // If the country is too small, select another country
-          if (country.getTotalLength() < 25) {
-            this.playGame();
+          if (country.getTotalLength() < 50 || area < 800) {
+            return this.playGame();
           }
 
           this.countryName = country.dataset.name;
