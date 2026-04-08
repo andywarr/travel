@@ -21,7 +21,13 @@
 
       .country {
         fill:#757575;
-        fill-rule:evenodd
+        fill-rule:evenodd;
+        transition: fill 0.2s ease-in-out;
+      }
+
+      .country:not(.visited):not(.correct):not(.incorrect):hover {
+        fill: #9E9E9E;
+        cursor: pointer;
       }
 
       .incorrect {
